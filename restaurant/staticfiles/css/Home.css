@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #292929; 
+    color: white; 
+}
+
+h1 {
+    color: white; 
+}
+
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex; 
+    justify-content: start; 
+    width: 100%; 
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    display: block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 20px; 
+    padding: 10px 0; 
+    background-color: #333; 
+}
+
+.nav-link:hover {
+    text-decoration: underline !important; 
+}
+
+img {
+    max-width: 100%; 
+    height: auto; 
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: calc(100% - 40px); /* 最大寬度減去左右邊距 */
+}
+
+th, td {
+    text-align: center; /* 水平置中 */
+    vertical-align: middle; /* 垂直置中 */
+    padding: 8px; /* 選擇性的，為了更好的視覺效果和間隔 */
+}
+/* Home.css */
+.comment {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.comment h3 {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.comment p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.comment span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+/* Home.css */
+.rating {
+    margin: 10px 0;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.rating label:hover {
+    text-decoration: underline;
+}
+textarea {
+    width: 400px;  /* 固定寬度 */
+    height: 150px; /* 固定高度 */
+    resize: none;  /* 禁止用戶調整大小 */
+}

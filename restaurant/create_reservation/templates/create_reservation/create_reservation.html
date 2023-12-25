@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>餐廳系統-訂位</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
+</head>
+<body>
+    <h1>訂位表單</h1>
+    <a href="{% url 'home' %}" class="nav-link"><h3>首頁</h3></a>
+
+    <!-- 注意这里添加了 action 和 method 属性，以及 Django 的 csrf_token 标签 -->
+    <form id="reservationForm" action="{% url 'create-reservation' %}" method="post">
+        
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="phone">電話：</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="date">日期：</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <!-- 注意这里的 id 应该是 time，与 name 属性一致 -->
+        <label for="time">時間：</label>
+        <select id="time" name="time" required>
+            <option value="">請選擇...</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+        </select><br><br>
+
+        <!-- 注意这里的 id 和 name 应该是 unique 的 -->
+        <label for="number_of_people">人數：</label>
+        <select id="number_of_people" name="number_of_people" required>
+            <option value="">請選擇...</option>
+            <option value="2">2人桌</option>
+            <option value="4">4人桌</option>
+            <option value="6">6人桌</option>
+            <option value="8">8人桌</option>
+        </select><br><br>
+
+        <input type="submit" value="提交訂位">
+    </form>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', today);
+        });
+    </script>
+</body>
+</html>

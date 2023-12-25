@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>餐廳系統-撰寫評論</title>
+    <link rel="stylesheet" type="text/css" href="Home.css">
+</head>
+<body>
+    <h1>撰寫評論</h1>
+    <a href="Home.html" class="nav-link"><h3>首頁</h3></a>
+
+    <form id="reviewForm">
+        <label for="username">用戶名：</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="review">評論：</label>
+        <textarea id="review" name="review" required></textarea><br><br>
+        <label>評分：</label>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">5 星</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">4 星</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">3 星</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">2 星</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">1 星</label>
+        </div>
+        <input type="submit" value="提交評論">
+    </form>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            // 现有的代码获取用户名和评论...
+
+            // 获取评分
+            var rating = document.querySelector('input[name="rating"]:checked').value;
+
+            // 构造要发送的数据
+            var formData = {
+                username: username,
+                review: review,
+                rating: rating  // 添加评分
+            };
+        });
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 防止表單的默認提交行為
+    
+            // 獲取表單數據
+            var username = document.getElementById('username').value;
+            var review = document.getElementById('review').value;
+    
+            // 構造要發送的數據
+            var formData = {
+                username: username,
+                review: review
+            };
+    
+            // 使用 Fetch API 發送 POST 請求
+            fetch('/reviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // 處理響應數據
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+    
+</body>
+</html>
