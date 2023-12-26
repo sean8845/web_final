@@ -12,6 +12,7 @@
         <!-- 表單中添加了 method="post" 和 action 屬性 -->
         <form id="cancellationForm" method="post" action="{% url 'cancel_reservation' %}">
             {% csrf_token %}
+            
             <label for="name">姓名：</label>
             <input type="text" id="name" name="name" required><br><br>
 
@@ -32,13 +33,9 @@
             <input type="submit" value="提交取消">  
         </form>
         
-        {% if form.errors %}
-        <div class="error">
-            <ul>
-                {% for field, errors in form.errors.items %}
-                <li>{{ field }}: {{ errors }}</li>
-                {% endfor %}
-            </ul>
+        {% if error_message %}
+        <div class="error-message">
+            <p>{{ error_message }}</p>
         </div>
         {% endif %}
 
