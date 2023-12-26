@@ -1,35 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>餐廳系統-取消訂位</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
-</head>
-<body>
-    <h1>取消訂位表單</h1>
-    <a href="{% url 'home' %}" class="nav-link"><h3>首頁</h3></a>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>餐廳系統-取消訂位</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
+    </head>
+    <body>
+        <h1>取消訂位表單</h1>
+        <a href="{% url 'home' %}" class="nav-link"><h3>首頁</h3></a>
 
-    <!-- 表單中添加了 method="post" 和 action 屬性 -->
-    <form id="cancellationForm" method="post" action="{% url 'cancel_reservation' %}">
-        {% csrf_token %}
-        <label for="name">姓名：</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <!-- 表單中添加了 method="post" 和 action 屬性 -->
+        <form id="cancellationForm" method="post" action="{% url 'cancel_reservation' %}">
+            {% csrf_token %}
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" required><br><br>
 
-        <label for="phone">電話：</label>
-        <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="phone">電話：</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
 
-        <label for="date">日期：</label>
-        <input type="date" id="date" name="date" required><br><br>
+            <label for="date">日期：</label>
+            <input type="date" id="date" name="date" required><br><br>
 
-        <label for="time">時間：</label>
-        <select id="time" name="time" required>
-            <option value="">請選擇...</option>
-            <option value="17:00">17:00</option>
-            <option value="18:00">18:00</option>
-            <option value="19:00">19:00</option>
-        </select><br><br>
+            <label for="time">時間：</label>
+            <select id="time" name="time" required>
+                <option value="">請選擇...</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+            </select><br><br>
 
-        <input type="submit" value="提交取消">
-    </form>
-</body>
-</html>
+            <input type="submit" value="提交取消">  
+        </form>
+        
+        {% if form.errors %}
+        <div class="error">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                <li>{{ field }}: {{ errors }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+
+    </body>
+    </html>
