@@ -9,9 +9,8 @@
     <h1>訂位表單</h1>
     <a href="{% url 'home' %}" class="nav-link"><h3>首頁</h3></a>
 
-    <!-- 注意这里添加了 action 和 method 属性，以及 Django 的 csrf_token 标签 -->
-    <form id="reservationForm" action="{% url 'create-reservation' %}" method="post">
-        
+        <form id="reservationForm" action="{% url 'create-reservation' %}" method="post">
+        {% csrf_token %}
         <label for="name">姓名：</label>
         <input type="text" id="name" name="name" required><br><br>
 
@@ -30,9 +29,9 @@
             <option value="19:00">19:00</option>
         </select><br><br>
 
-        <!-- 注意这里的 id 和 name 应该是 unique 的 -->
-        <label for="number_of_people">人數：</label>
-        <select id="number_of_people" name="number_of_people" required>
+
+        <label for="table">餐桌：</label>
+        <select id="table" name="table" required>
             <option value="">請選擇...</option>
             <option value="2">2人桌</option>
             <option value="4">4人桌</option>
@@ -40,9 +39,16 @@
             <option value="8">8人桌</option>
         </select><br><br>
 
+
         <input type="submit" value="提交訂位">
     </form>
-    
+    {% if form.errors %}
+        <div class="form-errors">
+            請修正以下錯誤：
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var today = new Date().toISOString().split('T')[0];

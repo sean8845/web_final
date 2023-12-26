@@ -36,7 +36,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 INSTALLED_APPS = [
     'reservations',
     'menu', 
-    'create_reservation',  # 应用程序名称应该正确
+    'create_reservation',
+    'cancel_reservation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
