@@ -4,6 +4,7 @@ from reservations import views as reservations_views
 from menu import views as menu_views
 from create_reservation import views as create_reservation_views
 from cancel_reservation.views import cancel_reservation
+from table_info.views import reservation_list
 
 urlpatterns = [
     path('', reservations_views.home, name='home'),
@@ -12,5 +13,7 @@ urlpatterns = [
     path('reservation_success/', create_reservation_views.reservation_success, name='reservation-success'),
     path('cancel_reservation/', include('cancel_reservation.urls')),
     path('admin/', admin.site.urls),
-    
+    path('table_info/', reservation_list, name='table_info'),
 ]
+
+

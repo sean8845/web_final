@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐廳系統-可用餐桌信息</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
+</head>
+<body>
+    <header>
+        <h1>本日可用餐桌</h1>
+        <nav>
+            <a href="{% url 'home' %}" class="nav-link"><h3>首頁</h3></a>
+        </nav>
+    </header>
+    
+    <section>
+        <table>
+            <thead>
+                <tr>
+                
+                    <th><h3>用餐時間</h3></th>
+                    <th><h3>座位人數</h3></th>
+                    <th><h3>預約狀態</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for table_info in table_info_data %}
+                <tr>
+                    
+                    <td>{{ table_info.start_time }} - {{ table_info.end_time }}</td>
+                    <td>{{ table_info.table_number }}</td>
+                    <td>{{ table_info.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </section>
+
+
+</body>
+</html>
