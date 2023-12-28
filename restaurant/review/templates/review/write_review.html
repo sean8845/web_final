@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>餐廳系統-撰寫評論</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
+</head>
+<body>
+    <h1>撰寫評論</h1>
+    <a href="{% url 'home' %}" class="nav-link"><h3>首頁</h3></a>
+
+    <form id="reviewForm" method="post" action="{% url 'write_review' %}">
+        {% csrf_token %}
+        <label for="username">用戶名：</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="review">評論：</label>
+        <textarea id="review" name="review" required></textarea><br><br>
+
+        <label>評分：</label>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">5 星</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">4 星</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">3 星</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">2 星</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">1 星</label>
+        </div>
+        <input type="submit" value="提交評論">
+    </form>
+
+</body>
+</html>

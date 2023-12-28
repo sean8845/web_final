@@ -15,8 +15,8 @@
             <li class="nav-item"><a href="{% url 'create-reservation' %}" class="nav-link"><p>線上訂位</p></a></li>
             <li class="nav-item"><a href="{% url 'cancel_reservation' %}" class="nav-link"><p>取消訂位</p></a></li>
             <li class="nav-item"><a href="{% url 'menu' %}"class="nav-link"><p>獲取菜單</p></a></li> 
-            <li class="nav-item"><a href="reviews.html"class="nav-link"><p>餐廳評論</p></a></li>
-            <li class="nav-item"><a href="write-review.html"class="nav-link"><p>撰寫評論</p></a></li>
+            <li class="nav-item"><a href="{% url 'review_list' %}" class="nav-link"><p>餐廳評論</p></a></li>
+            <li class="nav-item"><a href="{% url 'write_review' %}" class="nav-link"><p>撰寫評論</p></a></li>
         </ul>
     </nav>
 

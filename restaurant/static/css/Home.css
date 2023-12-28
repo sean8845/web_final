@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-color: #292929; 
     color: white; 
+    font-family: Arial, sans-serif; /* 添加字體 */
 }
 
 h1 {
@@ -27,8 +28,8 @@ h1 {
     display: block; 
     text-decoration: none; 
     color: white; 
-    font-size: 20px; 
-    padding: 10px 0; 
+    font-size: 18px; /* 稍微減小字體大小 */
+    padding: 10px 15px; /* 調整左右 padding */
     background-color: #333; 
 }
 
@@ -46,38 +47,42 @@ table {
     margin-right: auto;
     width: 100%;
     max-width: calc(100% - 40px); /* 最大寬度減去左右邊距 */
+    border-collapse: collapse; /* 添加表格邊框合併 */
 }
 
 th, td {
     text-align: center; /* 水平置中 */
     vertical-align: middle; /* 垂直置中 */
-    padding: 8px; /* 選擇性的，為了更好的視覺效果和間隔 */
+    padding: 12px; /* 調整內間距 */
+    border: 1px solid #ddd; /* 添加表格邊框 */
 }
+
 /* Home.css */
 .comment {
     border: 1px solid #ddd;
     padding: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* 調整與下方元素的間距 */
 }
 
 .comment h3 {
     color: #ffffff;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* 調整與下方元素的間距 */
 }
 
 .comment p {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 16px; /* 稍微增大字體大小 */
+    line-height: 1.6; /* 調整行高 */
 }
 
 .comment span {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px; /* 調整與上方元素的間距 */
     font-weight: bold;
 }
+
 /* Home.css */
 .rating {
-    margin: 10px 0;
+    margin: 15px 0; /* 調整與上下方元素的間距 */
 }
 
 .rating input[type="radio"] {
@@ -85,15 +90,19 @@ th, td {
 }
 
 .rating label {
-    margin-right: 5px;
+    margin-right: 8px; /* 稍微減小間距 */
     cursor: pointer;
 }
 
 .rating label:hover {
     text-decoration: underline;
 }
+
 textarea {
-    width: 400px;  /* 固定寬度 */
-    height: 150px; /* 固定高度 */
-    resize: none;  /* 禁止用戶調整大小 */
+    width: 100%; /* 使用百分比寬度，以便適應不同螢幕寬度 */
+    height: 150px;
+    resize: none;  
+    padding: 10px; /* 調整內間距 */
+    box-sizing: border-box; /* 避免寬度超出 */
 }
+

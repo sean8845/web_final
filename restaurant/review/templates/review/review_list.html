@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>餐廳系統-評論</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
+</head>
+<body>
+    <h1>評論</h1>
+    <a href="{% url 'home' %}" class="nav-link"><h3>首頁</h3></a>
+
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>
+                    <strong>{{ review.username }}</strong>: {{ review.review }} (評分: {{ review.rating }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>目前還沒有評論。</p>
+    {% endif %}
+</body>
+</html>
